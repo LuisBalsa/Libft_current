@@ -6,7 +6,7 @@
 #    By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:35:28 by luide-so          #+#    #+#              #
-#    Updated: 2023/06/19 18:07:58 by luide-so         ###   ########.fr        #
+#    Updated: 2023/06/19 20:28:19 by luide-so         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ FT_ = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_tolower.c ft_toupper.c ft_strclen.c \
 		ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c \
 		ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
-SRC = ${FT_}
+FT_PRINTF = ft_intlen.c ft_itoapositive.c ft_printf.c ft_puthex_fd.c print_chr.c \
+			print_hex.c print_nbr.c print_pointer.c print_str.c print_unsigned.c
+SRC = ${FT_} ${FT_PRINTF}
 OBJS = ${SRC:.c=.o}
 HEADER = libft.h
 INCLUDE = -I .

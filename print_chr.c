@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   print_chr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/22 20:16:17 by luide-so          #+#    #+#             */
-/*   Updated: 2023/06/19 18:53:08 by luide-so         ###   ########.fr       */
+/*   Created: 2023/05/03 20:38:05 by luide-so          #+#    #+#             */
+/*   Updated: 2023/06/19 18:35:07 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+int	print_chr(char c, int *flags)
 {
-	char	*c;
-	bool	sign;
-	int		len;
+	int		i;
 
-	sign = n < 0;
-	len = ft_intlen(n, 10) + sign;
-	c = (char *)malloc(sizeof(char) * (len + 1));
-	if (!c)
-		return (NULL);
-	c[len] = '\0';
-	if (sign)
+	i = 0;
+	if (flags[3])
 	{
-		*c = '-';
-		c[--len] = -(n % 10) + '0';
-		n = -(n / 10);
+		write(1, &c, 1);
+		while (i < flags[7] - 1)
+			i += write(1, " ", 1);
 	}
-	while (len-- - sign)
+	else
 	{
-		c[len] = n % 10 + '0';
-		n = n / 10;
+		while (i < flags[7] - 1)
+			i += write(1, " ", 1);
+		write(1, &c, 1);
 	}
-	return (c);
+	return (1 + i);
 }

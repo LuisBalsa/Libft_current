@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-/*                                                                            */
+/*                                                                          */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 14:37:12 by luide-so          #+#    #+#             */
-/*   Updated: 2023/06/19 17:50:53 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/06/19 18:55:29 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,6 @@ static int	count_strings(char const *s, char c)
 			count++;
 	}
 	return (count);
-}
-
-static size_t	ft_strclen(const char *s, char c)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len] != c && s[len] != '\0')
-		len++;
-	return (len);
 }
 
 char	**ft_split(char const *s, char c)

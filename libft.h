@@ -6,7 +6,7 @@
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:38:49 by luide-so          #+#    #+#             */
-/*   Updated: 2023/06/19 18:09:14 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/06/19 20:24:28 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 # define LIBFT_H
 
 # include <stdio.h>
+# include <stdarg.h>
+# include <limits.h>
 # include <unistd.h>
 # include <string.h>
 # include <stdlib.h>
 # include <ctype.h>
 # include <stdbool.h>
+
+# define HEXBASE "0123456789abcdef"
 
 typedef struct s_list
 {
@@ -70,5 +74,18 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_intlen(long long n, int base);
+void	ft_puthex_fd(unsigned int num, const char c, int fd);
+char	*ft_itoapositive(long long n);
+
+// printf functions
+
+int		ft_printf(const char *format, ...);
+int		print_chr(char c, int *flags);
+int		print_str(char *s, int *flags);
+int		print_nbr(int n, int *flags);
+int		print_hex(unsigned int nbr, int *flags, const char c);
+int		print_unsigned(unsigned int n, int *flags);
+int		print_pointer(unsigned long long addr, int *flags);
 
 #endif
