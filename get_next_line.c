@@ -6,7 +6,7 @@
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:28:00 by luide-so          #+#    #+#             */
-/*   Updated: 2023/06/19 21:20:21 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:58:27 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static char	*ft_memmove_mod(char *buff)
 	size_t	i;
 
 	line_len = ft_strclen(buff, '\n');
-	if (!buff[line_len])
+	if (!buff[line_len] || !buff[line_len + 1])
 	{
 		free (buff);
 		return (NULL);
