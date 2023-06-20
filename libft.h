@@ -6,7 +6,7 @@
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:38:49 by luide-so          #+#    #+#             */
-/*   Updated: 2023/06/19 20:24:28 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/06/19 21:22:31 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include <stdlib.h>
 # include <ctype.h>
 # include <stdbool.h>
-
-# define HEXBASE "0123456789abcdef"
 
 typedef struct s_list
 {
@@ -77,8 +75,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_intlen(long long n, int base);
 void	ft_puthex_fd(unsigned int num, const char c, int fd);
 char	*ft_itoapositive(long long n);
+void	ft_free_array(char **array);
 
 // printf functions
+
+# ifndef BUFFER_SIZE
+#  define HEXBASE "0123456789abcdef"
+# endif
 
 int		ft_printf(const char *format, ...);
 int		print_chr(char c, int *flags);
@@ -87,5 +90,17 @@ int		print_nbr(int n, int *flags);
 int		print_hex(unsigned int nbr, int *flags, const char c);
 int		print_unsigned(unsigned int n, int *flags);
 int		print_pointer(unsigned long long addr, int *flags);
+
+// get_next_line functions
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# ifndef MAX_FILES
+#  define MAX_FILES 500
+# endif
+
+char	*get_next_line(int fd);
 
 #endif

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/21 16:21:43 by luide-so          #+#    #+#             */
-/*   Updated: 2023/06/19 21:16:34 by luide-so         ###   ########.fr       */
+/*   Created: 2023/06/19 21:06:54 by luide-so          #+#    #+#             */
+/*   Updated: 2023/06/19 21:07:49 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	ft_free_array(char **array)
 {
-	char	*a;
+	int	i;
 
-	if (!s)
-		return (0);
-	a = (char *)s;
-	while (*a)
-	{
-		if (*a == (char) c)
-			return (a);
-		a++;
-	}
-	if (*a == (char) c)
-		return (a);
-	return (NULL);
+	i = 0;
+	while (array[i])
+		free(array[i++]);
+	free(array);
 }
