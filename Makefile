@@ -6,7 +6,7 @@
 #    By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:35:28 by luide-so          #+#    #+#              #
-#    Updated: 2023/06/19 21:22:18 by luide-so         ###   ########.fr        #
+#    Updated: 2023/06/21 23:48:10 by luide-so         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,13 +38,13 @@ ${NAME}: ${OBJS} ${HEADER}
 	@ar rcs ${NAME} ${OBJS} ${HEADER}
 	@echo "\n${NAME} created"
 
-%.o:%.c
-	@${CC} ${CFLAGS} ${INCLUDE} -c -o $@ $^
-	@echo "\n$@ created"
+%.o: %.c
+	@${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
+	@echo "\nObject created - libft"
 
 clean:
 	@${RM} ${OBJS}
-	@echo "\nObjects deleted"
+	@echo "\nObjects deleted - libft"
 
 fclean: clean
 	@${RM} ${NAME}
