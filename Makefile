@@ -6,7 +6,7 @@
 #    By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 15:35:28 by luide-so          #+#    #+#              #
-#    Updated: 2023/06/21 23:48:10 by luide-so         ###   ########.fr        #
+#    Updated: 2023/06/22 04:17:36 by luide-so         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ FT_PRINTF = ft_intlen.c ft_itoapositive.c ft_printf.c ft_puthex_fd.c print_chr.c
 FT_GET_NEXT_LINE = get_next_line.c
 
 SRC = ${FT_} ${FT_PRINTF} ${FT_GET_NEXT_LINE}
-OBJS = ${SRC:.c=.o}
+OBJS = ${addprefix ../Libft_obj/, ${SRC:.c=.o}}
 HEADER = libft.h
 INCLUDE = -I .
 CC = cc
@@ -35,19 +35,19 @@ CFLAGS = -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}: ${OBJS} ${HEADER}
-	@ar rcs ${NAME} ${OBJS} ${HEADER}
+	@ar rcs ../Libft_obj/${NAME} ${OBJS} ${HEADER}
 	@echo "\n${NAME} created"
 
-%.o: %.c
+../Libft_obj/%.o: %.c
+	@mkdir -p ../Libft_obj
 	@${CC} ${CFLAGS} ${INCLUDE} -c $< -o $@
-	@echo "\nObject created - libft"
 
 clean:
 	@${RM} ${OBJS}
+	@${RM} -r ../Libft_obj
 	@echo "\nObjects deleted - libft"
 
 fclean: clean
-	@${RM} ${NAME}
 	@echo "\n${NAME} deleted"
 
 re: fclean all
