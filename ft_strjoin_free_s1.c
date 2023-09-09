@@ -6,7 +6,7 @@
 /*   By: luide-so <luide-so@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/22 11:29:48 by luide-so          #+#    #+#             */
-/*   Updated: 2023/09/09 12:30:45 by luide-so         ###   ########.fr       */
+/*   Updated: 2023/09/09 12:44:26 by luide-so         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ char	*ft_strjoin_free_s1(char *s1, char const *s2)
 		j++;
 	}
 	c[i + j] = '\0';
-	free(s1);
+	if (s1)
+		free(s1);
 	return (c);
 }
